@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import dva from 'dva';
+// import './index.css';
+import createLoading from 'dva-loading';
+// 1. Initialize
+const app = dva();
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// 2. Plugins
+app.use(createLoading());
+// 3. Model
+app.model(require('./compontent/models/index').default);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// 4. Router
+app.router(require('./compontent').default);
+
+// 5. Start
+app.start('#root');
