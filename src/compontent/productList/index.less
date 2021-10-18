@@ -1,0 +1,114 @@
+.product-list{
+    width: 85%;
+    .sort{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3px;
+        padding-right: 50px;
+        .sort-select{
+            font-size: 16px;
+            .ant-select{
+                width: 150px;
+                margin-left: 10px;
+                .ant-select-selector{
+                    padding-right: 0 !important;
+                    box-sizing: border-box;
+                }
+                .ant-select-selection-item{
+                    padding-right: 0px !important;
+                }
+            }
+        }
+        
+    }
+    .product{
+        display: flex;
+        flex-wrap: wrap;
+        &-shipping{
+            color: #ececec;
+            // top: 10px;
+            // right: 10px;
+            padding: 5px;
+            font-size: 0.6em;
+            background-color: #1b1a20;
+        }
+        .ant-card{
+            width: calc(25% - 10px);
+            padding: 10px;
+            margin: 5px;
+            text-align: center;
+            &:hover{
+                .commodity-btn{
+                    background-color: #096dd9 !important;
+                    border-color: #096dd9 !important;
+                }
+            }
+            &-head{
+                position:absolute;
+                right: 0;
+                padding-right: 10px;
+            }
+            &-head,&-bordered {
+                border: none;
+            }
+            &-extra{
+                padding: 0;
+            }
+            &-cover{
+                margin: 0;
+            }
+            &-body{
+                padding: 0;
+                .commodity{
+                    &-title{
+                        padding: 16px 20px 0;
+                        height: 45px;
+                        font-size: 15px;
+                        display: block;
+                        font-weight: 500;
+                    }
+                    i{
+                        width: 20px;
+                        height: 2px;
+                        background-color: #eabf00;
+                        margin: auto;
+                        display: block;
+                    }
+                    &-size{
+                        margin: 0 5px;
+                    }
+                    &-price{
+                        font-size: 22px;
+                        margin-bottom: 10px;
+                        height: 60px;
+                    }
+                    &-val{
+                        span{
+                            font-size: 20px;
+                        }
+                        .small{
+                            font-size: 16px;
+                        }
+                    }
+                    &-installment{
+                        font-size: 16px;
+                        color: #9c9b9b;
+                    }
+                    .ant-btn{
+                        width: 80%;
+                        background-color: #333;
+                        border-color: #333;
+                        &:hover{
+                            background-color: #096dd9;
+                            border-color: #096dd9
+                        }
+                    }
+                }
+            }
+        }
+        .ant-card-bordered{
+            border: none;
+        }
+        
+    }
+}
