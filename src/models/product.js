@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // import { productsAPI } from '../../utils';
 // const productsAPI = 'https://getProduct/basic/ifno';
-const productsAPI = 'https://www.fastmock.site/mock/fd1d8dc7aff43be7e515e9151120efd7/shopping-cart/product/list'
+const productsAPI = 'https://www.fastmock.site/mock/fd1d8dc7aff43be7e515e9151120efd7/shopping-cart/product/list';
 const compare = {
     lowestprice: (a, b) => {
         if (a.price < b.price) return -1;
@@ -20,7 +20,6 @@ const fetchProducts = ({ filters, sortBy }) => {
     return axios
         .get(productsAPI)
         .then((res) => {
-            console.log(res);
             let { products } = res.data;
 
             if (!!filters && filters.length > 0) {
@@ -57,11 +56,11 @@ const product = {
                 filters,
                 sortBy,
             };
-            if (payload && payload.key === 'filters') {
-                params.filters = payload.payload;
-            } else if (payload && payload.key === 'sortBy') {
-                params.sortBy = payload.payload;
-            }
+            // if (payload && payload.key === 'filters') {
+            //     params.filters = payload.payload;
+            // } else if (payload && payload.key === 'sortBy') {
+            //     params.sortBy = payload.payload;
+            // }
             const data = yield call(fetchProducts, params);
             yield put({ type: 'setProduct', payload: data });
         },
@@ -69,14 +68,14 @@ const product = {
             yield put({ type: 'setFilter', payload });
             yield put({
                 type: 'getProduct',
-                payload: { payload, key: 'filters' },
+                // payload: { payload, key: 'filters' },
             });
         },
         *setSortBy ({ payload }, { call, put }) {
             yield put({ type: 'setSort', payload });
             yield put({
                 type: 'getProduct',
-                payload: { payload, key: 'sortBy' },
+                // payload: { payload, key: 'sortBy' },
             });
         },
     },

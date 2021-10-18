@@ -41,5 +41,3 @@ const ProductList = ({ dispatch, product, loading }) => {
 export default connect(({ product, loading }) => ({
     product, loading
 }))(ProductList);
-
-// export default ProductList;

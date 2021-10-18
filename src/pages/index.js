@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Filter from './filter';
-import ProductList from './productList';
-import Carts from './cart';
+import Filter from '../compontent/filter';
+import ProductList from '../compontent/productList';
+import Carts from '../compontent/cart';
 import 'antd/dist/antd.css';
 // import 'antd/dist/antd.less';
 import './index.less';

@@ -20,7 +20,7 @@ const ProductCart = ({ dispatch, cart, info }) => {
         dispatch({ type: 'cart/setShopCarts', payload: params })
     }
     return (
-        <div className={`cart-list ${isMove ? 'cart-list-del-move' : ''}`}>
+        <div className={`cart-list ${isMove ? 'cart-list-del-move' : ''}`} key={info.id}>
             <div className='cart-list-del'
                 onMouseOver={() => handleMouseOver()}
                 onMouseOut={() => handleMouseOut()}
@@ -32,7 +32,13 @@ const ProductCart = ({ dispatch, cart, info }) => {
                     {info.title}
                 </div>
                 <div>
-                    {`${info.availableSizes[0]} | ${info.style}`}
+                    {info.availableSizes.map((v, i) => {
+                        if (i === info.availableSizes.length - 1) {
+                            return <span key={v}>{v}</span>
+                        } else {
+                            return (<span key={v}>{v},</span>)
+                        }
+                    })} | {info.style}
                 </div>
                 <div>
                     Quantity: {info.quantity}

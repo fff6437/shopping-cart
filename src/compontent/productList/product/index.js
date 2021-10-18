@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { connect } from 'dva';
 import { Card, Button, Spin } from 'antd';
 import { formatPrice } from '../../../utils';
-// const { Meta } = Card;
 
 const ProductList = ({ dispatch, product, loading }) => {
     const productLoading = loading.effects['product/getProduct'];
@@ -38,9 +37,6 @@ const ProductList = ({ dispatch, product, loading }) => {
             <div className='product'>
                 {product.productList.map((v, i) => {
                     return (
-                        // <div key={i} style={{display: "inline-block"}}>
-                        //     <img src={require(`../../../static/products/${v.sku}_1.jpg`).default} alt={v.title} />
-                        // </div>
                         <Card
                             key={v.id}
                             hoverable
@@ -64,7 +60,6 @@ const ProductList = ({ dispatch, product, loading }) => {
                                         <b>{formatPrice(v.price, v.currencyId).substr(0, formatPrice(v.price, v.currencyId).length - 3)}</b>
                                         <span>{formatPrice(v.price, v.currencyId).substr(formatPrice(v.price, v.currencyId).length - 3, 3)}</span>
                                     </div>
-                                    {/* <div className='commodity-installment'></div> */}
                                     {getInstallment(v)}
                                 </div>
                                 <Button className='commodity-btn' type="primary">Add to cart</Button>

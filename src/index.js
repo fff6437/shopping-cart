@@ -10,11 +10,11 @@ const app = dva();
 // 2. Plugins
 app.use(createLoading());
 // 3. Model
-app.model(require('./compontent/models/product').default);
-app.model(require('./compontent/models/carts').default);
+app.model(require('./models/product').default);
+app.model(require('./models/carts').default);
 
 // 4. Router
-app.router(require('./compontent').default);
+app.router(require('./pages').default);
 
 // 5. Start
 app.start('#root');
