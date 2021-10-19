@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Drawer, Badge, Button, Modal } from 'antd';
-import { formatPrice } from '../../utils';
-import List from '../../compontent/cartlist';
+import { formatPrice } from '../../../utils';
+import List from '../../../compontent/cartlist';
 
-import './index.less'
+import './index.less';
 
 
 const Carts = ({ dispatch, cart, loading }) => {

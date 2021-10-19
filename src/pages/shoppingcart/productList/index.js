@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from 'dva';
-import { Select } from 'antd';
-import Product from '../../compontent/product';
+import { Select, Spin } from 'antd';
+import Product from '../../../compontent/product';
 import './index.less';
 
 const { Option } = Select;
@@ -13,6 +13,10 @@ const sortBy = [
 ];
 
 const ProductList = ({ dispatch, product, loading }) => {
+    const productLoading = loading.effects['product/getProduct'];
+    useEffect(() => {
+        dispatch({ type: 'product/getProduct' })
+    }, [dispatch]);
     const handleChange = (value) => {
         dispatch({ type: 'product/setSortBy', payload: value })
     };
@@ -33,7 +37,13 @@ const ProductList = ({ dispatch, product, loading }) => {
                     </Select>
                 </div>
             </div>
-            <Product />
+            <Spin tip="Loading..." spinning={productLoading}>
+                <div className='product'>
+                    {product.productList.map(v =>
+                        <Product v={v} />
+                    )}
+                </div>
+            </Spin>
         </div>
     )
 }
