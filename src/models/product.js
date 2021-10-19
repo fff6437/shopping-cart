@@ -46,7 +46,7 @@ const product = {
     state: {
         productList: [],
         filters: [],
-        sortBy: {},
+        sortBy: '',
     },
     effects: {
         *getProduct ({ payload }, { call, put, select }) {
@@ -56,11 +56,6 @@ const product = {
                 filters,
                 sortBy,
             };
-            // if (payload && payload.key === 'filters') {
-            //     params.filters = payload.payload;
-            // } else if (payload && payload.key === 'sortBy') {
-            //     params.sortBy = payload.payload;
-            // }
             const data = yield call(fetchProducts, params);
             yield put({ type: 'setProduct', payload: data });
         },
@@ -68,14 +63,12 @@ const product = {
             yield put({ type: 'setFilter', payload });
             yield put({
                 type: 'getProduct',
-                // payload: { payload, key: 'filters' },
             });
         },
         *setSortBy ({ payload }, { call, put }) {
             yield put({ type: 'setSort', payload });
             yield put({
                 type: 'getProduct',
-                // payload: { payload, key: 'sortBy' },
             });
         },
     },

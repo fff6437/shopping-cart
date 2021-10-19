@@ -1,5 +1,5 @@
 import dva from 'dva';
-// import './mock/app';
+// import '../mock/app';
 // import './index.css';
 import createLoading from 'dva-loading';
 // 1. Initialize
