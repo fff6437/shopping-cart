@@ -82,7 +82,7 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"node scripts/start.js\"",
+    "start": "node scripts/start.js",
     "start-dev": "node scripts/start.js",
     "server": "nodemon server/app",
     "build": "node scripts/build.js",

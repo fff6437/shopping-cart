@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from 'antd';
-import { formatPrice } from '../../../utils';
+import { formatPrice } from '../../utils';
 
 import { connect } from 'dva';
 
@@ -26,7 +26,7 @@ const ProductCart = ({ dispatch, cart, info }) => {
                 onMouseOut={() => handleMouseOut()}
                 onClick={() => handleAction('Remove')}
             >X</div>
-            <img src={require(`../../../static/products/${info.sku}_2.jpg`).default} alt={info.title} />
+            <img src={require(`../../static/products/${info.sku}_2.jpg`).default} alt={info.title} />
             <div className='cart-list-detail'>
                 <div className='cart-list-detail-title'>
                     {info.title}

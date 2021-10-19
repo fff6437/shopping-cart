@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'dva';
 import { Select } from 'antd';
-import Product from './product';
+import Product from '../../compontent/product';
 import './index.less';
 
 const { Option } = Select;

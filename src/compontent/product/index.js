@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from 'dva';
 import { Card, Button, Spin } from 'antd';
-import { formatPrice } from '../../../utils';
+import { formatPrice } from '../../utils';
 
 const ProductList = ({ dispatch, product, loading }) => {
     const productLoading = loading.effects['product/getProduct'];
@@ -40,7 +40,7 @@ const ProductList = ({ dispatch, product, loading }) => {
                         <Card
                             key={v.id}
                             hoverable
-                            cover={<img src={require(`../../../static/products/${v.sku}_1.jpg`).default} alt={v.title} />}
+                            cover={<img src={require(`../../static/products/${v.sku}_1.jpg`).default} alt={v.title} />}
                             extra={v.isFreeShipping ? <div className="product-shipping">Free shipping</div> : null}
                             onClick={() => addCart(v)}
                         >

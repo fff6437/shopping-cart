@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { Drawer, Badge, Button, Modal } from 'antd';
 import { formatPrice } from '../../utils';
-import List from './list';
+import List from '../../compontent/cartlist';
 
 import './index.less'
 
